@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822a2b8edd56e74429274cc104a4af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: 0
+  respawn: 1
 --- !u!1 &245501731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822a2b8edd56e74429274cc104a4af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: 0
+  respawn: 1
 --- !u!61 &621336107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1302,7 +1302,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3423424, y: 1}
+    m_SensorSize: {x: 2.1432748, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822a2b8edd56e74429274cc104a4af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: 0
+  respawn: 1
 --- !u!61 &705589050
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2065,7 +2065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822a2b8edd56e74429274cc104a4af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawn: 0
+  respawn: 1
 --- !u!61 &1087959960
 BoxCollider2D:
   m_ObjectHideFlags: 0
