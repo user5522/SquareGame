@@ -4,47 +4,55 @@ using UnityEngine;
 
 public class HoldESCToExit : MonoBehaviour {
 
+    public Animator transition;
+
    // Timer controls
     private float startTime = 0f;
     private float timer = 0f;
-    public float holdTime = 4.5f;
+    public float holdTime = 3.5f;
  
     private bool held = false;
  
     public KeyCode Key = KeyCode.Escape;
    
-    void Update ()
-    {
+    void Update () {
         if (Input.GetKeyDown(Key))
         {
             startTime = Time.time;
             timer = startTime;
         }
  
-        // Adds time onto the timer so long as the key is pressed
         if (Input.GetKey(Key) && held == false)
         {
             timer += Time.deltaTime;
- 
-            // Once the timer float has added on the required holdTime, changes the bool (for a single trigger), and calls the function
+
             if (timer >= (startTime + holdTime))
             {
                 held = true;
                 Function();
             }
-        }
- 
-        // For single effects. Remove if not needed
-        if (Input.GetKeyUp(Key))
-        {
+            if (Input.GetKeyUp(Key))
+            {
             held = false;
+            Function();
+            // return;
+            }
         }
-    }
  
-    // Method called after held for required time
-    void Function()
-    {
-        Debug.Log("works");
+    }
+
+    void Function(){
+        Debug.Log("exited");
         Application.Quit();
     }
-}
+
+//     void Function() {
+//         StartCoroutine(Animation());
+//     }
+//     IEnumerator Animation() {
+//         transition.SetTrigger("Start");
+//         yield return new WaitForSeconds(holdTime);
+//         Debug.Log("exited"); //this is for testing purposes
+//         Application.Quit();
+//     }
+// }
