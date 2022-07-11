@@ -1,11 +1,13 @@
 # SquareGame
-A cool (in my opinion) 2D Unity Game.
+A 2D platformer game using Unity Game Engine.
 
 ## hello bonjour hola привет olá
 
-i forgot to backup my poop game so now im gonna start fresh & open sourced (like my gf)
-sosry if you care (no one cares)
+i forgot to backup the game files so im starting from scratch & open sourced (no one cares)
 
-## Info
-to test my game in it's early phases, you can now use the actions tab!
-(i had to do alot to make workflows work d)
+## Note
+
+To test the game in it's early phases, you can now use the actions tab
+to download fresh builds!
+ 
+(*Requires logging in github*)
