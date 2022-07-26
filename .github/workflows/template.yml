@@ -1,4 +1,4 @@
-name: GameCI Template 🎮
+name: GameCI Template
 
 on: push
 
@@ -7,16 +7,16 @@ env:
 
 jobs:
   checkLicense:
-    name: Check for the Unity license ☑️
+    name: Check for the Unity license 
     runs-on: ubuntu-latest
     steps:
-      - name: Fail - No license ☠️
+      - name: Fail - No license 
         if: ${{ !startsWith(env.UNITY_LICENSE, '<') }}
         run: exit 1
 
   testRunner:
     needs: checkLicense
-    name: Test all modes 📝
+    name: Test all modes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -59,7 +59,7 @@ jobs:
 
   buildWindows:
     needs: testRunner
-    name: Build for Windows 🖥️
+    name: Build for Windows
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
