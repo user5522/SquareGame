@@ -23,6 +23,10 @@ public class PlayerController: MonoBehaviour {
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
+    
+    // Fall speed modification vars
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
 
     // End of vars
 
@@ -32,10 +36,11 @@ public class PlayerController: MonoBehaviour {
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.UpArrow) && extraJumps > 0){
+	if((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0){
+
             rb.velocity = Vector2.up * jumpForce;
             extraJumps --;
-        }else if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true && extraJumps == 0){
+        }else if((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded == true && extraJumps == 0){
             isJumping = true;
             rb.velocity = Vector2.up * jumpForce;
             jumpTimeCounter = jumpTime;
@@ -44,15 +49,29 @@ public class PlayerController: MonoBehaviour {
             extraJumps = extraJumpsValue;
         }
 
-        if(Input.GetKey(KeyCode.UpArrow) && isJumping == true){
+       if((Input.GetKey(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.W)) && isJumping == true){
 
             if(jumpTimeCounter > 0){
                 rb.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
         }
-        if(Input.GetKeyUp(KeyCode.UpArrow))
+        if((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
         isJumping = false;
+        
+                // Modify falling speed
+        if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)))
+        {
+            // Make the player fall faster
+            if (rb.velocity.y < 0)
+            {
+                rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+        }
     }
 
     void FixedUpdate(){
