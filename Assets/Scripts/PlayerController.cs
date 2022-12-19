@@ -25,8 +25,8 @@ public class PlayerController: MonoBehaviour {
     private bool isJumping;
     
     // Fall speed modification vars
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2f;
+    public float fallMultiplier = 30f;
+    public float lowJumpMultiplier = 27.5f;
 
     // End of vars
 
@@ -37,7 +37,6 @@ public class PlayerController: MonoBehaviour {
 
     void Update(){
 	if((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0){
-
             rb.velocity = Vector2.up * jumpForce;
             extraJumps --;
         }else if((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded == true && extraJumps == 0){
@@ -59,7 +58,7 @@ public class PlayerController: MonoBehaviour {
         if((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
         isJumping = false;
         
-                // Modify falling speed
+            // Modify falling speed
         if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)))
         {
             // Make the player fall faster
