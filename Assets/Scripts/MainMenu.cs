@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour{
 
     public void ExitButton(){
         Application.Quit();
-        Debug.Log("Exit Button Pressed"); // This is just for testing purposes
+        Debug.Log("Quit!"); // This is just for testing purposes
     }
 
     public void StartButton(){
