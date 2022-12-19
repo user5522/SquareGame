@@ -3827,6 +3827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
+  cameraShake: {fileID: 0}
 --- !u!212 &871285246
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8623,6 +8624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1117444215}
+  cameraShake: {fileID: 1551949419}
 --- !u!114 &2101240794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8649,7 +8651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 55658999}
-  fadeTime: 7
+  fadeTime: 5
 --- !u!1 &2122150951
 GameObject:
   m_ObjectHideFlags: 0
