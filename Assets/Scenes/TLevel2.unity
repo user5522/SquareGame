@@ -6334,7 +6334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDuration: 0
-  shakeAmount: 0.7
+  shakeAmount: 0.05
   decreaseFactor: 1
   virtualCamera: {fileID: 1387140820}
 --- !u!1 &1588242330
