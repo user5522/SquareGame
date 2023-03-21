@@ -3654,7 +3654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ac8f9b2f7d1a0028392b0e4a6e2720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: 3
+  targetScene: 0
 --- !u!4 &700290262
 Transform:
   m_ObjectHideFlags: 0
@@ -9063,7 +9063,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9074479300542270403, guid: 6a59d0b75bc12a185a90fe314ec77505, type: 3}
       propertyPath: targetScene
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9074479300542270404, guid: 6a59d0b75bc12a185a90fe314ec77505, type: 3}
       propertyPath: cameraShake
