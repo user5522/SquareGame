@@ -16,11 +16,5 @@ public class KillPlayer : MonoBehaviour
             // Teleport the player to the respawn point
             transform.position = respawnPoint.position;
         }
-        if (Mathf.Abs(transform.position.y - gameObject.transform.position.y) < deathRange)
-        {
-            cameraShake.shakeDuration = 0.75f;
-            // Teleport the player to the respawn point
-            transform.position = respawnPoint.position;
-        }
     }
 }
