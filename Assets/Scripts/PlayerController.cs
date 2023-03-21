@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController: MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
     // L/R movement vars
     public float speed;
     public float jumpForce;
@@ -23,62 +23,108 @@ public class PlayerController: MonoBehaviour {
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
-    
+
     // Fall speed modification vars
     public float fallMultiplier = 30f;
     public float lowJumpMultiplier = 27.5f;
 
+    // Speed
+    private float speedMultiplier = 1f;
+    private float speedMultiplierTime = .5f;
+    private float speedMultiplierCounter = 0f;
+
     // End of vars
 
-    void Start(){
+    void Start()
+    {
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update(){
-	if((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0){
+    void Update()
+    {
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumps > 0)
+        {
             rb.velocity = Vector2.up * jumpForce;
-            extraJumps --;
-        }else if((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded == true && extraJumps == 0){
+            extraJumps--;
+            speedMultiplier = 1f;
+        }
+        else if (
+            (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            && isGrounded == true
+            && extraJumps == 0
+        )
+        {
             isJumping = true;
             rb.velocity = Vector2.up * jumpForce;
             jumpTimeCounter = jumpTime;
+            speedMultiplier = 1f;
         }
-        if(isGrounded == true){
+        if (isGrounded == true)
+        {
             extraJumps = extraJumpsValue;
+            isJumping = false;
         }
 
-       if((Input.GetKey(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.W)) && isJumping == true){
-
-            if(jumpTimeCounter > 0){
+        if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.W)) && isJumping == true)
+        {
+            if (jumpTimeCounter > 0)
+            {
                 rb.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
         }
-        if((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
-        isJumping = false;
-        
-            // Modify falling speed
+        if ((Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
+        {
+            isJumping = false;
+            speedMultiplier = 1f;
+        }
+
+        // Modify falling speed
         if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)))
         {
             // Make the player fall faster
             if (rb.velocity.y < 0)
             {
-                rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+                rb.velocity +=
+                    Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             }
             else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
             {
-                rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+                rb.velocity +=
+                    Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
+        }
+        // Modify speed
+        if (
+            (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            && (
+                Input.GetKey(KeyCode.LeftArrow)
+                || Input.GetKey(KeyCode.A)
+                || Input.GetKey(KeyCode.RightArrow)
+                || Input.GetKey(KeyCode.D)
+            )
+            && isJumping == false
+        )
+        {
+            speedMultiplierCounter = speedMultiplierTime;
+            speedMultiplier = 1.5f;
+        }
+        if (speedMultiplierCounter > 0)
+        {
+            speedMultiplierCounter -= Time.deltaTime;
+        }
+        else
+        {
+            speedMultiplier = 1f;
         }
     }
 
-    void FixedUpdate(){
-
+    void FixedUpdate()
+    {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, ground);
 
         moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
+        rb.velocity = new Vector2(moveInput * speed * speedMultiplier, rb.velocity.y);
     }
 }
