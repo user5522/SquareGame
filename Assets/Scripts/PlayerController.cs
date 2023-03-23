@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     private float speedMultiplier = 1f;
     private float speedMultiplierTime = .5f;
     private float speedMultiplierCounter = 0f;
+    private bool isSpeedBoosted = false;
+    private float speedMultCooldown = 1f;
+    private float speedMultCooldownCounter = 0f;
 
     // End of vars
 
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
 
-        if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.W)) && isJumping == true)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.W)) && isJumping == true)
         {
             if (jumpTimeCounter > 0)
             {
@@ -97,19 +100,34 @@ public class PlayerController : MonoBehaviour
         }
         // Modify speed
         if (
-            (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             && (
                 Input.GetKey(KeyCode.LeftArrow)
                 || Input.GetKey(KeyCode.A)
                 || Input.GetKey(KeyCode.RightArrow)
                 || Input.GetKey(KeyCode.D)
             )
-            && isJumping == false
+            && isJumping == false && !isSpeedBoosted
         )
         {
-            speedMultiplierCounter = speedMultiplierTime;
-            speedMultiplier = 1.5f;
+                speedMultiplierCounter = speedMultiplierTime;
+                speedMultiplier = 1.5f;
+                isSpeedBoosted = true;
+
         }
+            if (isSpeedBoosted)
+    {
+        if (speedMultCooldownCounter < speedMultCooldown)
+        {
+            speedMultCooldownCounter += Time.deltaTime;
+        }
+        else
+        {
+            speedMultiplier = 1f;
+            isSpeedBoosted = false;
+            speedMultCooldownCounter = 0f;
+        }
+    }
         if (speedMultiplierCounter > 0)
         {
             speedMultiplierCounter -= Time.deltaTime;
