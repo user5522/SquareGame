@@ -143,7 +143,7 @@ MonoBehaviour:
     m_Bits: 64
   extraJumpsValue: 2
   jumpTime: 0.35
-  fallMultiplier: 40
+  fallMultiplier: 5
   lowJumpMultiplier: 27.5
 --- !u!50 &9074479300542270456
 Rigidbody2D:
