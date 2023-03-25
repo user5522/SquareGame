@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Modify falling speed
-        if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)))
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)))
         {
             // Make the player fall faster
             if (rb.velocity.y < 0)
@@ -107,27 +107,27 @@ public class PlayerController : MonoBehaviour
                 || Input.GetKey(KeyCode.RightArrow)
                 || Input.GetKey(KeyCode.D)
             )
-            && isJumping == false && !isSpeedBoosted
+            && isGrounded == true
+            && !isSpeedBoosted
         )
         {
-                speedMultiplierCounter = speedMultiplierTime;
-                speedMultiplier = 1.5f;
-                isSpeedBoosted = true;
-
+            speedMultiplierCounter = speedMultiplierTime;
+            speedMultiplier = 1.5f;
+            isSpeedBoosted = true;
         }
-            if (isSpeedBoosted)
-    {
-        if (speedMultCooldownCounter < speedMultCooldown)
+        if (isSpeedBoosted)
         {
-            speedMultCooldownCounter += Time.deltaTime;
+            if (speedMultCooldownCounter < speedMultCooldown)
+            {
+                speedMultCooldownCounter += Time.deltaTime;
+            }
+            else
+            {
+                speedMultiplier = 1f;
+                isSpeedBoosted = false;
+                speedMultCooldownCounter = 0f;
+            }
         }
-        else
-        {
-            speedMultiplier = 1f;
-            isSpeedBoosted = false;
-            speedMultCooldownCounter = 0f;
-        }
-    }
         if (speedMultiplierCounter > 0)
         {
             speedMultiplierCounter -= Time.deltaTime;
