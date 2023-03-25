@@ -27,7 +27,7 @@ public class QuitGame : MonoBehaviour
         fadeImage.gameObject.SetActive(true);
         Color color = fadeImage.color;
         float elapsedTime = 0f;
-        while (Input.GetKey(KeyCode.Escape) && elapsedTime < fadeTime)
+        while (Input.GetKeyDown(KeyCode.Escape) && elapsedTime < fadeTime)
         {
             color.a = Mathf.Lerp(0f, 1f, elapsedTime / fadeTime);
             fadeImage.color = color;
@@ -45,7 +45,7 @@ public class QuitGame : MonoBehaviour
             elapsedTime = 0f;
             // Use a shorter fade time for the reverse fade
             float reverseFadeTime = fadeTime / 1.5f;
-            while (!Input.GetKey(KeyCode.Escape) && elapsedTime < reverseFadeTime)
+            while (!Input.GetKeyDown(KeyCode.Escape) && elapsedTime < reverseFadeTime)
             {
                 // Use the stored alpha value as the starting point for the reverse fade
                 color.a = Mathf.Lerp(alpha, 0f, elapsedTime / reverseFadeTime);
@@ -61,7 +61,7 @@ public class QuitGame : MonoBehaviour
     IEnumerator QuitGameCoroutine()
     {
         isQuitting = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Application.Quit();
         Debug.Log("Quit!");
