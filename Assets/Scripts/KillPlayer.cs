@@ -16,5 +16,9 @@ public class KillPlayer : MonoBehaviour
             // Teleport the player to the respawn point
             transform.position = respawnPoint.position;
         }
+        else if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            respawnPoint = other.transform;
+        }
     }
 }
