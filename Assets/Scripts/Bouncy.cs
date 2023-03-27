@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bouncy : MonoBehaviour
 {
     public float jumpForce = 2.25f;
+    public float maxBounciness = 5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +16,8 @@ public class Bouncy : MonoBehaviour
             if (rb != null)
             {
                 float yVelocity = rb.velocity.y;
-                Vector2 jumpDirection = new Vector2(0f, Mathf.Abs(jumpForce * yVelocity));
+                float bounciness = Mathf.Min(Mathf.Abs(jumpForce * yVelocity), maxBounciness);
+                Vector2 jumpDirection = new Vector2(0f, bounciness);
                 rb.AddForce(jumpDirection, ForceMode2D.Impulse);
             }
         }
