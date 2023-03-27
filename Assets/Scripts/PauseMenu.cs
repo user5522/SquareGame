@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public Animator pauseIconAnimator;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -42,3 +41,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(isPaused);
     }
 }
+
+
+// to do: make the scaledown animation work lmfao
