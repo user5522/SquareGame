@@ -30,10 +30,10 @@ public class PlayerController : MonoBehaviour
 
     // Speed
     private float speedMultiplier = 1f;
-    private float speedMultiplierTime = .5f;
+    private float speedMultiplierTime = .25f;
     private float speedMultiplierCounter = 0f;
     private bool isSpeedBoosted = false;
-    private float speedMultCooldown = 1f;
+    private float speedMultCooldown = .25f;
     private float speedMultCooldownCounter = 0f;
 
     // End of vars
@@ -146,3 +146,5 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveInput * speed * speedMultiplier, rb.velocity.y);
     }
 }
+
+// to do: make it so dashing in the air is only available once and dashing on the ground is available each .25s
