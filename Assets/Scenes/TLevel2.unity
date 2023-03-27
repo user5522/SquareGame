@@ -1910,7 +1910,7 @@ Transform:
   - {fileID: 107879583}
   - {fileID: 1343241026}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407845528
 GameObject:
@@ -2564,7 +2564,7 @@ Transform:
   - {fileID: 1335277190}
   - {fileID: 82486938}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451360641
 GameObject:
@@ -2577,7 +2577,7 @@ GameObject:
   - component: {fileID: 451360642}
   - component: {fileID: 451360645}
   - component: {fileID: 451360644}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerKiller (3)
   m_TagString: DeathTrigger
   m_Icon: {fileID: 0}
@@ -3764,7 +3764,7 @@ Transform:
   m_Children:
   - {fileID: 2143039346}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &712635250
 GameObject:
@@ -3898,7 +3898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326164080811907679, guid: 6e69c04f058716b40b38d1c5a72714c5, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5326164080811907679, guid: 6e69c04f058716b40b38d1c5a72714c5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6527,7 +6527,7 @@ Transform:
   - {fileID: 215943981}
   - {fileID: 451360642}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1433040392
 GameObject:
@@ -7516,6 +7516,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1691361260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1889789308579762129, guid: 7a3c7317fb53cf34dbb7947b6e6677eb, type: 3}
+  m_PrefabInstance: {fileID: 248391522}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1deffdc6640c4fb51a0dc06bc3d1b2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1698902319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7549,7 +7560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473456134684755097, guid: 4005ec4910ad6cd4eb895a25af01ec67, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8473456134684755097, guid: 4005ec4910ad6cd4eb895a25af01ec67, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7789,7 +7800,7 @@ Transform:
   - {fileID: 1638510986}
   - {fileID: 1215174940}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1745930588
 GameObject:
@@ -8256,7 +8267,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801899556
 GameObject:
@@ -9185,7 +9196,7 @@ PrefabInstance:
     - target: {fileID: 9074479300542270404, guid: 6a59d0b75bc12a185a90fe314ec77505, type: 3}
       propertyPath: cameraShake
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1691361260}
     - target: {fileID: 9074479300542270404, guid: 6a59d0b75bc12a185a90fe314ec77505, type: 3}
       propertyPath: respawnPoint
       value: 
