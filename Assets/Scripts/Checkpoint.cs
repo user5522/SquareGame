@@ -5,7 +5,6 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public Animator animator;
-    public new ParticleSystem particleSystem;
 
     private bool hasCollided = false;
 
@@ -15,7 +14,6 @@ public class Checkpoint : MonoBehaviour
         {
             other.GetComponent<KillPlayer>().respawnPoint = transform;
             animator.SetTrigger("CheckpointReached");
-            particleSystem.Play();
             hasCollided = true;
         }
     }
