@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789308207168995}
   - component: {fileID: 1889789308207168994}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889789308230270282}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789308266682959}
   - component: {fileID: 1889789308266682958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789308321535868}
   - component: {fileID: 1889789308321535843}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789308399573925}
   - component: {fileID: 1889789308399573924}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789308544592585}
   - component: {fileID: 1889789308544592584}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889789308579761967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0.8, z: -10}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeDuration: 0
-  shakeAmount: 0.05
+  shakeAmount: 0.2
   decreaseFactor: 1
   virtualCamera: {fileID: 0}
 --- !u!1 &1889789308732398887
@@ -635,7 +635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789308732398886}
   - component: {fileID: 1889789308732398885}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 1889789308776295662}
   - component: {fileID: 1889789308776295660}
   - component: {fileID: 1889789308776295661}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789309099841719}
   - component: {fileID: 1889789309099841718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789309118531661}
   - component: {fileID: 1889789309118531660}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +991,7 @@ GameObject:
   - component: {fileID: 1889789309451281970}
   - component: {fileID: 1889789309451281968}
   - component: {fileID: 1889789309451281969}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789309457666244}
   - component: {fileID: 1889789309457666251}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,7 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789309542572808}
   - component: {fileID: 1889789309542572815}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,7 +1262,7 @@ GameObject:
   - component: {fileID: 1889789309798170381}
   - component: {fileID: 1889789309798170419}
   - component: {fileID: 1889789309798170380}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789310220774504}
   - component: {fileID: 1889789310220774511}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1448,7 +1448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889789310249533688}
   - component: {fileID: 1889789310249533695}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BGL1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
