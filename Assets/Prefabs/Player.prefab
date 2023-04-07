@@ -135,15 +135,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 6.25
+  moveInput: 0
   groundCheck: {fileID: 9074479299649752185}
-  checkRadius: 0.5
-  ground:
-    serializedVersion: 2
-    m_Bits: 64
+  checkRadius: 0.4
   extraJumpsValue: 2
   jumpTime: 0.35
   fallMultiplier: 5
   lowJumpMultiplier: 27.5
+  speedMultiplier: 1
+  speedMultiplierTime: 0.25
+  speedMultCooldown: 0.25
 --- !u!50 &9074479300542270456
 Rigidbody2D:
   serializedVersion: 4
@@ -217,5 +218,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.95, y: 0.97}
   m_EdgeRadius: 0

@@ -4,39 +4,54 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // L/R movement vars
-    public float speed;
-    public float jumpForce;
+    [Header("Movement")]
+    [SerializeField]
+    private float speed;
+
+    [SerializeField]
+    private float jumpForce;
+
+    [SerializeField]
     private float moveInput;
 
-    // Rigidbody2D var
-    private Rigidbody2D rb;
+    [Header("Jump")]
+    [SerializeField]
+    private Transform groundCheck;
 
-    // Jump movement vars
-    private bool isGrounded;
-    public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask ground;
-    private int extraJumps;
-    public int extraJumpsValue;
+    [SerializeField]
+    private float checkRadius;
 
-    private float jumpTimeCounter;
-    public float jumpTime;
-    private bool isJumping;
+    [SerializeField]
+    private int extraJumpsValue;
 
-    // Fall speed modification vars
-    public float fallMultiplier = 30f;
-    public float lowJumpMultiplier = 27.5f;
+    [SerializeField]
+    private float jumpTime;
 
-    // Speed
+    [Header("Fall Multiplier")]
+    [SerializeField]
+    private float fallMultiplier = 30f;
+
+    [SerializeField]
+    float lowJumpMultiplier = 27.5f;
+
+    [Header("Speed Multiplier")]
+    [SerializeField]
     private float speedMultiplier = 1f;
-    private float speedMultiplierTime = .25f;
-    private float speedMultiplierCounter = 0f;
-    private bool isSpeedBoosted = false;
-    private float speedMultCooldown = .25f;
-    private float speedMultCooldownCounter = 0f;
 
-    // End of vars
+    [SerializeField]
+    private float speedMultiplierTime = .25f;
+
+    [SerializeField]
+    private float speedMultCooldown = .25f;
+
+    private bool isGrounded;
+    private bool isJumping;
+    private Rigidbody2D rb;
+    private int extraJumps;
+    private float jumpTimeCounter;
+    private bool isSpeedBoosted = false;
+    private float speedMultCooldownCounter = 0f;
+    private float speedMultiplierCounter = 0f;
 
     void Start()
     {
@@ -83,10 +98,8 @@ public class PlayerController : MonoBehaviour
             speedMultiplier = 1f;
         }
 
-        // Modify falling speed
         if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)))
         {
-            // Make the player fall faster
             if (rb.velocity.y < 0)
             {
                 rb.velocity +=
@@ -98,7 +111,6 @@ public class PlayerController : MonoBehaviour
                     Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
         }
-        // Modify speed
         if (
             (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             && (
@@ -140,7 +152,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, ground);
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            checkRadius,
+            LayerMask.GetMask("Ground")
+        );
 
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed * speedMultiplier, rb.velocity.y);
