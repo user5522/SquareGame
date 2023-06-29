@@ -1,47 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public Vector3 targetPosition;
-    public float speed = 1f;
+    public float speed;
+    public int startingPoint;
+    public Transform[] points;
 
-    private Vector3 startPosition;
-    private bool movingToTarget = true;
+    private int i;
 
     void Start()
     {
-        startPosition = transform.position;
+        transform.position = points[startingPoint].position;
     }
 
     void Update()
     {
-        if (movingToTarget)
+        if (Vector2.Distance(transform.position, points[i].position) < .02f)
         {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                targetPosition,
-                speed * Time.deltaTime
-            );
-
-            if (transform.position == targetPosition)
+            i++;
+            if (i == points.Length)
             {
-                movingToTarget = false;
+                i = 0;
             }
         }
-        else
-        {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                startPosition,
-                speed * Time.deltaTime
-            );
 
-            if (transform.position == startPosition)
+        transform.position = Vector2.MoveTowards(
+            transform.position,
+            points[i].position,
+            speed * Time.deltaTime
+        );
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Player"))
+        {
+            if (transform.position.y < other.transform.position.y)
             {
-                movingToTarget = true;
+                other.transform.SetParent(transform);
             }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Player"))
+        {
+            other.transform.SetParent(null);
         }
     }
 }
