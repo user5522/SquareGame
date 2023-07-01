@@ -1,31 +1,3 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-
-// public class KillPlayer : MonoBehaviour
-// {
-//     public Transform respawnPoint;
-//     public float deathRange;
-//     public CameraShake cameraShake;
-//     public float intensity;
-//     public float duration;
-
-//     void OnTriggerEnter2D(Collider2D other)
-//     {
-//         if (other.gameObject.CompareTag("DeathTrigger"))
-//         {
-//             cameraShake.SmoothShake(intensity, duration);
-
-//             // Teleport the player to the respawn point
-//             transform.position = respawnPoint.position;
-//         }
-//         else if (other.gameObject.CompareTag("Checkpoint"))
-//         {
-//             respawnPoint = other.transform;
-//         }
-//     }
-// }
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
