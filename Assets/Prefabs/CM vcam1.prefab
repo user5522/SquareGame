@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8532101977535791280}
   - component: {fileID: 8532101977535791282}
   - component: {fileID: 8532101977535791281}
+  - component: {fileID: 3083790108939725973}
+  - component: {fileID: 4878110637575347573}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -88,6 +90,40 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!114 &3083790108939725973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532101977535791295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &4878110637575347573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532101977535791295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 0}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &8532101978010471481
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8532101978010471483}
   - component: {fileID: 8532101978010471482}
+  - component: {fileID: 3869468524697674387}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -140,7 +177,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 9074479300542270405, guid: 6a59d0b75bc12a185a90fe314ec77505, type: 3}
   m_Lens:
     FieldOfView: 34
     OrthographicSize: 10
@@ -159,3 +196,15 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 8532101977535791280}
+--- !u!114 &3869468524697674387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532101978010471481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1deffdc6640c4fb51a0dc06bc3d1b2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

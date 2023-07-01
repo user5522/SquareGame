@@ -5,49 +5,84 @@ using Cinemachine;
 
 public class CameraShake : MonoBehaviour
 {
-    // How long the object should shake for
-    public float shakeDuration = 0f;
+    private CinemachineVirtualCamera _virtualCamera;
+    private CinemachineBasicMultiChannelPerlin _cameraNoise;
 
-    // Amplitude of the shake. A larger value shakes the camera harder
-    public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
+    private const float SHAKE_STRENGTH = 1.0f;
 
-    // Reference to the cinemachine component
-    public CinemachineVirtualCamera virtualCamera;
-
-    // Original position and orientation of the Virtual Camera
-    Vector3 originalPos;
-    Quaternion originalRot;
-
-    void OnEnable()
+    private void Start()
     {
-        // Save the original position and orientation of the Virtual Camera
-        originalPos = virtualCamera.transform.localPosition;
-        originalRot = virtualCamera.transform.localRotation;
+        _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        _cameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+        _cameraNoise.m_AmplitudeGain = 0;
     }
 
-    void Update()
+    #region Basic Shake
+    public void BasicShake(float intensity, float duration)
     {
-        if (shakeDuration > 0)
+        StopAllCoroutines();
+        StartCoroutine(DoBasicShake(intensity, duration));
+    }
+
+    private IEnumerator DoBasicShake(float intensity, float duration)
+    {
+        _cameraNoise.m_AmplitudeGain = intensity * SHAKE_STRENGTH;
+        yield return new WaitForSeconds(duration);
+        _cameraNoise.m_AmplitudeGain = 0;
+    }
+    #endregion
+
+    #region Smooth Shake
+    public void SmoothShake(
+        float intensity,
+        float duration,
+        float fadeInTime = 0,
+        float fadeOutTime = 0
+    )
+    {
+        StopAllCoroutines();
+        StartCoroutine(DoSmoothShake(intensity, duration, fadeInTime, fadeOutTime));
+    }
+
+    private IEnumerator DoSmoothShake(
+        float intensity,
+        float duration,
+        float fadeInTime,
+        float fadeOutTime
+    )
+    {
+        float startTime = Time.time;
+        _cameraNoise.m_AmplitudeGain = 0;
+
+        //Fade In
+        while (Time.time - startTime < fadeInTime)
         {
-            // Modify the Virtual Camera's position and orientation to create a shake effect
-            virtualCamera.transform.localPosition =
-                originalPos + Random.insideUnitSphere * shakeAmount;
-            virtualCamera.transform.localRotation = new Quaternion(
-                originalRot.x + Random.Range(-shakeAmount, shakeAmount) * .2f,
-                originalRot.y + Random.Range(-shakeAmount, shakeAmount) * .2f,
-                originalRot.z + Random.Range(0, 0) * .2f,
-                originalRot.w + Random.Range(0, 0) * .2f
+            float fadeAmount = Mathf.Lerp(0, intensity, (Time.time - startTime) / fadeInTime);
+            _cameraNoise.m_AmplitudeGain = fadeAmount * intensity * SHAKE_STRENGTH;
+            yield return null;
+        }
+
+        //Main Shake
+        _cameraNoise.m_AmplitudeGain = intensity * SHAKE_STRENGTH;
+        yield return new WaitForSeconds(duration);
+
+        //Fade Out
+        while (Time.time - startTime < fadeInTime + duration + fadeOutTime)
+        {
+            float fadeAmount = Mathf.Lerp(
+                intensity,
+                0,
+                (Time.time - (startTime + fadeInTime + duration)) / fadeInTime
             );
+            _cameraNoise.m_AmplitudeGain = fadeAmount * intensity * SHAKE_STRENGTH;
+            yield return null;
+        }
 
-            shakeDuration -= Time.deltaTime * decreaseFactor;
-        }
-        else
-        {
-            shakeDuration = 0f;
-            // Reset the Virtual Camera's position and orientation
-            virtualCamera.transform.localPosition = originalPos;
-            virtualCamera.transform.localRotation = originalRot;
-        }
+        _cameraNoise.m_AmplitudeGain = 0;
     }
+    #endregion
 }
+
+
+// thanks to https://github.com/Dawnosaur/
