@@ -109,7 +109,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -193,7 +193,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
   deathRange: 1
-  cameraShake: {fileID: 0}
+  cameraShake: {fileID: 3869468524697674387, guid: f48b5b8d9e4fa9e41a0ad8ca7d0b098c, type: 3}
+  intensity: 5
+  duration: 0.5
+  squarePrefab: {fileID: 2230036749796158445, guid: b0abf73c89239b94394bf4230f83cf94, type: 3}
+  colors:
+  - {r: 1, g: 0.22599812, b: 0.2216981, a: 1}
+  - {r: 1, g: 0.6784314, b: 0.019607844, a: 1}
+  - {r: 0.9882353, g: 1, b: 0.29411766, a: 1}
+  - {r: 0.32941177, g: 0.54901963, b: 0.18431373, a: 1}
+  - {r: 0.015686275, g: 0.2627451, b: 0.5372549, a: 1}
+  - {r: 0.39215687, g: 0.17254902, b: 0.6627451, a: 1}
+  - {r: 0.28235295, g: 0.047058824, b: 0.65882355, a: 1}
+  spawnChance: 0.25
 --- !u!61 &9074479300542270457
 BoxCollider2D:
   m_ObjectHideFlags: 0
